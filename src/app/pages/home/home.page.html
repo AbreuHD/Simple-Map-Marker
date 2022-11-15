@@ -9,10 +9,46 @@
 
 <ion-content>
   <ion-fab slot="fixed" vertical="top" horizontal="end" [edge]="true">
-    <ion-fab-button>
+    <ion-fab-button id="open-modal">
       <ion-icon name="add"></ion-icon>
     </ion-fab-button>
   </ion-fab>
 
   <div id="mapId" style="height: 100%; width: 100%"></div>
+
+
+
+  <ion-modal trigger="open-modal" (willDismiss)="onWillDismiss($event)">
+    <ng-template>
+      <ion-header>
+        <ion-toolbar>
+          <ion-buttons slot="start">
+            <ion-button (click)="cancel()">Cancel</ion-button>
+          </ion-buttons>
+          <ion-buttons slot="end">
+            <ion-button (click)="confirm()" [strong]="true">Confirm</ion-button>
+          </ion-buttons>
+        </ion-toolbar>
+      </ion-header>
+      <ion-content class="ion-padding">
+        <p>Introduce la informacion del marcador</p>
+        <ion-item>
+          <ion-label position="stacked">Nombre</ion-label>
+          <ion-input type="text" placeholder="Jefferson" [(ngModel)]="name"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label position="stacked">Apellido</ion-label>
+          <ion-input type="text" placeholder="Abreu" [(ngModel)]="lastname"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label position="stacked">Latitud</ion-label>
+          <ion-input type="number" step="any" placeholder="18.4511009" [(ngModel)]="lat"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label position="stacked">Longitud</ion-label>
+          <ion-input type="number" step="any" placeholder="-69.6642079" [(ngModel)]="long"></ion-input>
+        </ion-item>
+      </ion-content>
+    </ng-template>
+  </ion-modal>
 </ion-content>
