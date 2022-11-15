@@ -1,0 +1,8 @@
+{
+  "name": "TareaFinalMovil",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular",
+  "id": "61b2ebc7"
+}
